@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>To-Do List</title>
+</head>
+<body>
+    <h1>To-Do List</h1>
+    <ul>
+        <li th:each="todo : ${todos}">
+            <span th:text="${todo.task}"></span>
+            <button onclick="deleteTask([[${todo.id}]])">Delete</button>
+        </li>
+    </ul>
+    <form action="/api/todos" method="post">
+        <input type="text" name="task" placeholder="New Task">
+        <button type="submit">Add</button>
+    </form>
+</body>
+</html>
